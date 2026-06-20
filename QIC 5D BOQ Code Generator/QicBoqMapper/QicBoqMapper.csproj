@@ -1,0 +1,65 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net48</TargetFramework>
+    <AssemblyName>QicBoqMapper</AssemblyName>
+    <RootNamespace>QicBoqMapper</RootNamespace>
+    <UseWPF>true</UseWPF>
+    <UseWindowsForms>true</UseWindowsForms>
+    <LangVersion>9.0</LangVersion>
+    <Nullable>enable</Nullable>
+    <PlatformTarget>x64</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <GenerateAssemblyInfo>true</GenerateAssemblyInfo>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <RevitInstallPath Condition="'$(RevitInstallPath)'==''">C:\Program Files\Autodesk\Revit 2023</RevitInstallPath>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Reference Include="RevitAPI">
+      <HintPath>$(RevitInstallPath)\RevitAPI.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="RevitAPIUI">
+      <HintPath>$(RevitInstallPath)\RevitAPIUI.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Net.Http" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="EPPlus" Version="5.8.14" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Resources\*.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="QicBoqMapper.addin" />
+  </ItemGroup>
+
+  <Target Name="AutoDeployToRevit" AfterTargets="Build">
+    <PropertyGroup>
+      <RevitAddinsDir>C:\ProgramData\Autodesk\Revit\Addins\2023</RevitAddinsDir>
+      <RevitAddinSubFolder>$(RevitAddinsDir)\QicBoqMapper</RevitAddinSubFolder>
+    </PropertyGroup>
+    <Message Importance="High" Text="Deploying add-in files to: $(RevitAddinSubFolder)" />
+    <MakeDir Directories="$(RevitAddinsDir)" Condition="!Exists('$(RevitAddinsDir)')" />
+    <MakeDir Directories="$(RevitAddinSubFolder)" Condition="!Exists('$(RevitAddinSubFolder)')" />
+    <Copy SourceFiles="$(ProjectDir)QicBoqMapper.addin" DestinationFolder="$(RevitAddinsDir)" ContinueOnError="WarnAndContinue" />
+    <ItemGroup>
+      <AddinDlls Include="$(OutputPath)*.dll" />
+      <AddinPdbs Include="$(OutputPath)*.pdb" />
+    </ItemGroup>
+    <Copy SourceFiles="@(AddinDlls)" DestinationFolder="$(RevitAddinSubFolder)" ContinueOnError="WarnAndContinue" />
+    <Copy SourceFiles="@(AddinPdbs)" DestinationFolder="$(RevitAddinSubFolder)" ContinueOnError="WarnAndContinue" />
+    <ItemGroup>
+      <ResourceFiles Include="$(ProjectDir)Resources\*.*" />
+    </ItemGroup>
+    <Copy SourceFiles="@(ResourceFiles)" DestinationFolder="$(RevitAddinSubFolder)\Resources" ContinueOnError="WarnAndContinue" />
+  </Target>
+</Project>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  WphExportAddin.addin
+  ====================
+  Revit add-in manifest.
+
+  IMPORTANT: <Assembly> must match the ACTUAL DLL filename your project builds.
+  This project builds "WphExportAddin01.dll" (the VS project was named
+  WphExportAddin01), so the line below points at that file.
+
+  <FullClassName> is the CODE namespace + class, NOT the DLL name. Every .cs
+  file declares `namespace WphExportAddin`, so it stays WphExportAddin.WphExportApp.
+
+  INSTALL: copy this file AND WphExportAddin01.dll (plus the Resources\ folder
+  with the icons) into:
+      %ProgramData%\Autodesk\Revit\Addins\2023\
+-->
+<RevitAddIns>
+  <AddIn Type="Application">
+    <Name>WPH Export</Name>
+    <Assembly>WphExport\WphExportAddin01.dll</Assembly>
+    <AddInId>9f2c5d4a-3b71-4e88-9c21-7d5a6e0f1234</AddInId>
+    <FullClassName>WphExportAddin.WphExportApp</FullClassName>
+    <VendorId>WPH</VendorId>
+    <VendorDescription>WPH Project BIM Automation</VendorDescription>
+  </AddIn>
+</RevitAddIns>
