@@ -12,7 +12,7 @@ namespace WphExportAddin
     /// </summary>
     public static class AddinInfo
     {
-        public const string ToolName  = "WPH Export";
+        public const string ToolName  = "RUKN BIM API Export";
         public const string Version   = "2.0";
         public const string PreparedBy = "Ahmed Khalaf";
         public const string Title      = "BIM Manager";
@@ -80,7 +80,7 @@ namespace WphExportAddin
     {
         // -------- user inputs --------
         public RunMode Mode { get; set; } = RunMode.Weekly;
-        public string OutputFolder { get; set; } = @"C:\WPH\Deliverables";
+        public string OutputFolder { get; set; } = @"C:\RuknBIM\Deliverables";
         public string ModelName { get; set; } = "";
         public string IfcVersionKey { get; set; } = "IFC2x3CV2";
         public bool DateStamp { get; set; } = false;        // easy on/off
@@ -111,7 +111,7 @@ namespace WphExportAddin
         public bool HasViewSelection => SelectedViews != null && SelectedViews.Count > 0;
 
         // -------- fixed project constant --------
-        public const string Prefix = "WPH";
+        public const string Prefix = "RUKN";
 
         // -----------------------------------------------------------------
         // Per-format subfolder mapping. Only used when UseSubfolders == true.

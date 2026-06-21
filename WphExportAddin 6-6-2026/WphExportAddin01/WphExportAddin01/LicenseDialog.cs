@@ -24,7 +24,7 @@ namespace WphExportAddin
 
         private void BuildUi()
         {
-            Text = "WPH Export — License Activation";
+            Text = "RUKN BIM API Export — License Activation";
             FormBorderStyle = FormBorderStyle.FixedDialog;
             StartPosition = FormStartPosition.CenterScreen;
             MaximizeBox = false;
@@ -35,7 +35,7 @@ namespace WphExportAddin
             // Intro label
             var introLabel = new Label
             {
-                Text = "Please enter your registered email and activation code to activate the WPH Export Add-in.",
+                Text = "Please enter your registered email and activation code to activate the RUKN BIM API Export Add-in.",
                 Left = 16, Top = 16, Width = 348, Height = 40,
                 ForeColor = Color.FromArgb(60, 60, 60)
             };
@@ -77,7 +77,7 @@ namespace WphExportAddin
                     var sb = new StringBuilder();
                     sb.AppendLine("Hello Ahmed,");
                     sb.AppendLine();
-                    sb.AppendLine("I would like to request an activation code for the WPH Export Add-in.");
+                    sb.AppendLine("I would like to request an activation code for the RUKN BIM API Export Add-in.");
                     sb.AppendLine();
                     sb.AppendLine("--- Device Details ---");
                     sb.AppendLine("Machine ID: " + machineId);
@@ -91,7 +91,7 @@ namespace WphExportAddin
                     }
 
                     string mailtoUrl = string.Format(
-                        "mailto:engkhalaf7@gmail.com?subject=WPH%20Export%20Activation%20Request&body={0}",
+                        "mailto:engkhalaf7@gmail.com?subject=RUKN%20BIM%20API%20Export%20Activation%20Request&body={0}",
                         Uri.EscapeDataString(sb.ToString())
                     );
 
@@ -150,8 +150,8 @@ namespace WphExportAddin
                 if (LicenseManager.Activate(email, code, out string error))
                 {
                     MessageBox.Show(
-                        "Activation successful!\n\nThank you for licensing the WPH Export Add-in.",
-                        "WPH Export — Success",
+                        "Activation successful!\n\nThank you for licensing the RUKN BIM API Export Add-in.",
+                        "RUKN BIM API Export — Success",
                         MessageBoxButtons.OK,
                         MessageBoxIcon.Information
                     );
@@ -162,7 +162,7 @@ namespace WphExportAddin
                 {
                     MessageBox.Show(
                         "Activation failed:\n" + error,
-                        "WPH Export — Activation Failed",
+                        "RUKN BIM API Export — Activation Failed",
                         MessageBoxButtons.OK,
                         MessageBoxIcon.Error
                     );

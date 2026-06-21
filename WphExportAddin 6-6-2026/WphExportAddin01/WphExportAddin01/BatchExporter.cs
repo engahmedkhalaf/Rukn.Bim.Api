@@ -46,7 +46,7 @@ namespace WphExportAddin
         {
             int delay = _settings.DelaySeconds < 0 ? 0 : _settings.DelaySeconds;
 
-            Log(string.Format("=== WPH BATCH EXPORT @ {0} ===",
+            Log(string.Format("=== RUKN BIM API BATCH EXPORT @ {0} ===",
                 DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")));
             Log(string.Format("models={0}  mode={1}  delay={2}s  folder={3}",
                 _files.Count, _settings.Mode, delay, _settings.OutputFolder));

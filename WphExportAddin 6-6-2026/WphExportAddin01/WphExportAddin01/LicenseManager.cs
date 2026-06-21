@@ -19,7 +19,7 @@ namespace WphExportAddin
         private const string SupabaseAnonKey = "sb_publishable_zhW-Ox8_ssRAZKkGkBbsog_1juWTr1X";
         // =====================================================================
 
-        private const string RegistryKeyPath = @"Software\WPH\Export";
+        private const string RegistryKeyPath = @"Software\RuknBIM\Export";
 
         /// <summary>
         /// Checks if a valid license exists.
@@ -42,7 +42,7 @@ namespace WphExportAddin
                         return false;
 
                     // Master / Offline bypass keys require no online validation
-                    if (code == "WPH-MASTER-2026-TRUSTED" || code.StartsWith("WPH-LOCAL-"))
+                    if (code == "RUKN-MASTER-2026-TRUSTED" || code.StartsWith("RUKN-LOCAL-"))
                         return true;
 
                     if (!DateTime.TryParse(lastVerifiedStr, out DateTime lastVerified))
@@ -101,7 +101,7 @@ namespace WphExportAddin
             code = code.Trim();
 
             // 1. Master Bypass Codes (works offline)
-            if (code == "WPH-MASTER-2026-TRUSTED" || code.StartsWith("WPH-LOCAL-"))
+            if (code == "RUKN-MASTER-2026-TRUSTED" || code.StartsWith("RUKN-LOCAL-"))
             {
                 SaveLicenseLocally(email, code);
                 return true;

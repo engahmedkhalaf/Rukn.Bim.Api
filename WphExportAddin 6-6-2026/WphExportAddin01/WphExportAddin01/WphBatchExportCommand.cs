@@ -50,7 +50,7 @@ namespace WphExportAddin
                 {
                     if (licDlg.ShowDialog() != System.Windows.Forms.DialogResult.OK)
                     {
-                        message = "WPH Export requires a valid active license.";
+                        message = "RUKN BIM API Export requires a valid active license.";
                         return Result.Cancelled;
                     }
                 }
@@ -88,7 +88,7 @@ namespace WphExportAddin
                 var batch = new BatchExporter(uiApp, settings, files);
                 string log = batch.Run();
 
-                new TaskDialog("WPH Export — Batch result")
+                new TaskDialog("RUKN BIM API Export — Batch result")
                 {
                     MainInstruction = "Batch export finished.",
                     MainContent = log,
@@ -99,7 +99,7 @@ namespace WphExportAddin
             }
             catch (Exception ex)
             {
-                message = "WPH batch export failed: " + ex.Message;
+                message = "RUKN BIM API batch export failed: " + ex.Message;
                 return Result.Failed;
             }
         }
@@ -136,7 +136,7 @@ namespace WphExportAddin
 
         private void BuildUi()
         {
-            Text = "WPH Batch Export";
+            Text = "RUKN BIM API Batch Export";
             FormBorderStyle = FormBorderStyle.FixedDialog;
             StartPosition = FormStartPosition.CenterScreen;
             MaximizeBox = false;
@@ -339,7 +339,7 @@ namespace WphExportAddin
 
         private static void Warn(string text)
         {
-            MessageBox.Show(text, "WPH Batch Export",
+            MessageBox.Show(text, "RUKN BIM API Batch Export",
                 MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
     }

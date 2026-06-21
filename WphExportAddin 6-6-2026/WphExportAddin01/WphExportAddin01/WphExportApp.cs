@@ -16,7 +16,7 @@ namespace WphExportAddin
     public class WphExportApp : IExternalApplication
     {
         // The tab and panel names users see in Revit.
-        private const string TabName = "WPH";
+        private const string TabName = "RUKN BIM API";
         private const string PanelName = "Export";
 
         public Result OnStartup(UIControlledApplication application)
@@ -57,12 +57,12 @@ namespace WphExportAddin
                 //    needs. Each one targets a class implementing IExternalCommand.
                 var mainBtnData = new PushButtonData(
                     "WphExportMain",                     // internal name (unique)
-                    "WPH Export",                        // label under the icon
+                    "RUKN BIM API Export",                   // label under the icon
                     asmPath,
                     "WphExportAddin.WphExportCommand")   // full class name
                 {
-                    ToolTip = "Open the WPH export dialog (pick scope, format options, run).",
-                    LongDescription = "Click the main button to open the WPH export dialog. " +
+                    ToolTip = "Open the RUKN BIM API export dialog (pick scope, format options, run).",
+                    LongDescription = "Click the main button to open the RUKN BIM API export dialog. " +
                                       "Click the arrow below for one-click Weekly or Monthly runs."
                 };
 
@@ -107,7 +107,7 @@ namespace WphExportAddin
 
                 // 6) Create the SplitButton. The "current" button (main face) is
                 //    the dialog launcher; the dropdown adds the two one-click runs.
-                var splitData = new SplitButtonData("WphExportSplit", "WPH Export");
+                var splitData = new SplitButtonData("WphExportSplit", "RUKN BIM API Export");
                 SplitButton split = panel.AddItem(splitData) as SplitButton;
 
                 PushButton mainBtn = split.AddPushButton(mainBtnData);
@@ -127,7 +127,7 @@ namespace WphExportAddin
                     asmPath,
                     "WphExportAddin.WphLoginCommand")
                 {
-                    ToolTip = "View or activate your WPH Export license."
+                    ToolTip = "View or activate your RUKN BIM API Export license."
                 };
                 AttachIcons(loginData, "WphLicense");
                 panel.AddItem(loginData);
@@ -149,8 +149,8 @@ namespace WphExportAddin
             catch (Exception ex)
             {
                 // Don't kill Revit's startup if ribbon creation fails; just log.
-                TaskDialog.Show("WPH Export — startup error",
-                    "Could not build the WPH ribbon:\n\n" + ex.Message);
+                TaskDialog.Show("RUKN BIM API Export — startup error",
+                    "Could not build the RUKN BIM API ribbon:\n\n" + ex.Message);
                 return Result.Failed;
             }
         }

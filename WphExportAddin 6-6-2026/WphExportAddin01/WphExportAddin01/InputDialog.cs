@@ -50,7 +50,7 @@ namespace WphExportAddin
 
         private void BuildUi()
         {
-            Text = "WPH Export";
+            Text = "RUKN BIM API Export";
             FormBorderStyle = FormBorderStyle.FixedDialog;
             StartPosition = FormStartPosition.CenterScreen;
             MaximizeBox = false;
@@ -307,14 +307,14 @@ namespace WphExportAddin
             // Basic validation; keep it light so the command stays runnable.
             if (string.IsNullOrWhiteSpace(_folderBox.Text))
             {
-                MessageBox.Show("Please choose an output folder.", "WPH Export",
+                MessageBox.Show("Please choose an output folder.", "RUKN BIM API Export",
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 DialogResult = DialogResult.None; // keep dialog open
                 return;
             }
             if (string.IsNullOrWhiteSpace(_disciplineBox.Text))
             {
-                MessageBox.Show("Please enter a model name.", "WPH Export",
+                MessageBox.Show("Please enter a model name.", "RUKN BIM API Export",
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 DialogResult = DialogResult.None;
                 return;

@@ -29,7 +29,7 @@ namespace WphExportAddin
                 {
                     if (licDlg.ShowDialog() != System.Windows.Forms.DialogResult.OK)
                     {
-                        message = "WPH Export requires a valid active license.";
+                        message = "RUKN BIM API Export requires a valid active license.";
                         return Result.Cancelled;
                     }
                 }
@@ -40,7 +40,7 @@ namespace WphExportAddin
 
             if (doc == null)
             {
-                message = "No active document. Open the WPH model first.";
+                message = "No active document. Open the model first.";
                 return Result.Failed;
             }
 
@@ -64,7 +64,7 @@ namespace WphExportAddin
 
                 // 3) Show the log to the user (and it's easy to also write it to
                 //    a .txt next to the deliverables if you want — see note below).
-                TaskDialog td = new TaskDialog("WPH Export — Result")
+                TaskDialog td = new TaskDialog("RUKN BIM API Export — Result")
                 {
                     MainInstruction = "Export run complete.",
                     MainContent = log,
@@ -84,7 +84,7 @@ namespace WphExportAddin
             {
                 // This catches only setup/dialog errors; per-format failures are
                 // already handled inside WphExporter and reported in the log.
-                message = "WPH Export failed before running: " + ex.Message;
+                message = "RUKN BIM API Export failed before running: " + ex.Message;
                 return Result.Failed;
             }
         }

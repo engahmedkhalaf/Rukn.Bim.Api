@@ -1,11 +1,11 @@
 ; ==========================================================
-; WPH Export - Installer
+; RUKN BIM API Export - Installer
 ; Revit 2023
 ; ==========================================================
 
-#define MyAppName "WPH Export"
+#define MyAppName "RUKN BIM API Export"
 #define MyAppVersion "1.0.0"
-#define PublishDir "D:\API Khalaf\Revit API\Publish\NWC EXPORTER Scope"
+#define PublishDir "d:\API Khalaf\Rukn.Bim.Api\WIP\REVIT\Publish\NWC EXPORTER Scope"
 
 [Setup]
 AppId={{9F2C5D4A-3B71-4E88-9C21-7D5A6E0F1234}
@@ -14,7 +14,7 @@ AppVersion={#MyAppVersion}
 DefaultDirName={commonappdata}\Autodesk\Revit\Addins\2023\WphExport
 DisableProgramGroupPage=yes
 OutputDir=Output
-OutputBaseFilename=WphExportSetup
+OutputBaseFilename=RuknBimApiExportSetup
 Compression=lzma
 SolidCompression=yes
 WizardStyle=modern

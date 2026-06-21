@@ -23,7 +23,7 @@ namespace WphExportAddin
                 {
                     if (licDlg.ShowDialog() != System.Windows.Forms.DialogResult.OK)
                     {
-                        message = "WPH Export requires a valid active license.";
+                        message = "RUKN BIM API Export requires a valid active license.";
                         return Result.Cancelled;
                     }
                 }
@@ -32,7 +32,7 @@ namespace WphExportAddin
             Document doc = commandData.Application.ActiveUIDocument?.Document;
             if (doc == null)
             {
-                message = "No active document. Open the WPH model first.";
+                message = "No active document. Open the model first.";
                 return Result.Failed;
             }
 
@@ -68,7 +68,7 @@ namespace WphExportAddin
                 var exporter = new WphExporter(doc, settings);
                 string log = exporter.Run();
 
-                var td = new TaskDialog("WPH Export — " + mode + " result")
+                var td = new TaskDialog("RUKN BIM API Export — " + mode + " result")
                 {
                     MainInstruction = mode + " export complete.",
                     MainContent = log,
@@ -79,7 +79,7 @@ namespace WphExportAddin
             }
             catch (Exception ex)
             {
-                message = "WPH " + mode + " export failed: " + ex.Message;
+                message = "RUKN BIM API " + mode + " export failed: " + ex.Message;
                 return Result.Failed;
             }
         }

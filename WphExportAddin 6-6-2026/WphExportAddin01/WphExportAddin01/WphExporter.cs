@@ -68,7 +68,7 @@ namespace WphExportAddin
         // ─────────────────────────────────────────────────────────────────────
         public string Run()
         {
-            Log(string.Format("=== WPH EXPORT RUN @ {0} ===",
+            Log(string.Format("=== RUKN BIM API EXPORT RUN @ {0} ===",
                 DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")));
             Log(string.Format("mode={0}  modelName={1}  folder={2}  subfolders={3}  dateStamp={4}  delay={5}s  links={6}",
                 _settings.Mode, _settings.ModelName, _settings.OutputFolder,
@@ -430,7 +430,7 @@ namespace WphExportAddin
                 }
                 else
                 {
-                    using (var tx = new Transaction(doc, "WPH IFC Export"))
+                    using (var tx = new Transaction(doc, "RUKN BIM API IFC Export"))
                     {
                         tx.Start();
                         ok = doc.Export(dir, nameNoExt, opts);

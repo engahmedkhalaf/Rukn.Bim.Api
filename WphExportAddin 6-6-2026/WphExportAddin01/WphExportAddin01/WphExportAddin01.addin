@@ -17,11 +17,11 @@
 -->
 <RevitAddIns>
   <AddIn Type="Application">
-    <Name>WPH Export</Name>
+    <Name>RUKN BIM API Export</Name>
     <Assembly>WphExport\WphExportAddin01.dll</Assembly>
     <AddInId>9f2c5d4a-3b71-4e88-9c21-7d5a6e0f1234</AddInId>
     <FullClassName>WphExportAddin.WphExportApp</FullClassName>
-    <VendorId>WPH</VendorId>
-    <VendorDescription>WPH Project BIM Automation</VendorDescription>
+    <VendorId>RUKNBIMAPI</VendorId>
+    <VendorDescription>RUKN BIM API — Revit and Navisworks Add-ins</VendorDescription>
   </AddIn>
 </RevitAddIns>
