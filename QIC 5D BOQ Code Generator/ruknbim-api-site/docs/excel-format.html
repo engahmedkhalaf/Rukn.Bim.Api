@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Excel format reference for the QIC 5D BOQ Code Generator.">
+    <title>Excel Format Reference — RUKN BIM API</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏗️</text></svg>">
+</head>
+<body>
+    <div class="bg-blobs">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+    </div>
+
+    <nav class="navbar scrolled">
+        <div class="container">
+            <a href="../index.html" class="nav-logo"><div class="logo-icon">R</div> RUKN BIM</a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="../index.html#products">Products</a></li>
+                <li><a href="../index.html#docs">Docs</a></li>
+                <li><a href="../index.html#contact" class="nav-cta">Get Started</a></li>
+            </ul>
+            <button class="nav-hamburger" id="navToggle" aria-label="Toggle menu">☰</button>
+        </div>
+    </nav>
+
+    <main class="docs-page section">
+        <div class="container">
+            <a href="../index.html#docs" class="docs-back">← Back to Documentation</a>
+
+            <div class="docs-header">
+                <h1>📊 Excel Format Reference</h1>
+                <p>Column specifications and mapping template structure</p>
+            </div>
+
+            <div class="docs-content">
+                <h2>Worksheet Detection</h2>
+                <p>The parser looks for worksheets in this order:</p>
+                <ol>
+                    <li><code>Revit Elements</code> — primary sheet name</li>
+                    <li><code>BOQ Mapping</code> — alternative sheet name</li>
+                    <li>First worksheet — fallback if neither name is found</li>
+                </ol>
+
+                <h2>Required Columns</h2>
+                <p>At minimum, the Excel file must contain one identifier column plus the 5 BOQ code fields:</p>
+
+                <div class="params-table-wrapper">
+                    <table class="params-table">
+                        <thead>
+                            <tr><th>Column Header</th><th>Alternate Names</th><th>Description</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td><code>Type Name</code></td><td><code>TYPE NAME</code>, <code>TYPE</code></td><td>Element type name for matching</td></tr>
+                            <tr><td><code>Element ID</code></td><td><code>ELEMENT ID</code>, <code>ELEMENTID</code></td><td>Revit Element ID for exact matching</td></tr>
+                            <tr><td><code>Package No</code></td><td><code>PACKAGE NO</code>, <code>PACKAGE_NO</code></td><td>Package number</td></tr>
+                            <tr><td><code>Bill No</code></td><td><code>BILL NO</code>, <code>BILL_NO</code></td><td>Bill number</td></tr>
+                            <tr><td><code>System Code</code></td><td><code>SYSTEM CODE</code>, <code>SYSTEM_CODE</code></td><td>System classification code</td></tr>
+                            <tr><td><code>Page No</code></td><td><code>PAGE NO</code>, <code>PAGE_NO</code></td><td>Page reference number</td></tr>
+                            <tr><td><code>Item No</code></td><td><code>ITEM NO</code>, <code>ITEM_NO</code></td><td>Item reference number</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="docs-callout info">
+                    <strong>ℹ️ Identifier Requirement</strong>
+                    <p>At least one of <code>Type Name</code> or <code>Element ID</code> must be present. Both can coexist — Element ID takes priority during matching.</p>
+                </div>
+
+                <h2>Optional Columns</h2>
+                <div class="params-table-wrapper">
+                    <table class="params-table">
+                        <thead>
+                            <tr><th>Column Header</th><th>Alternate Names</th><th>Description</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td><code>Category</code></td><td><code>CATEGORY</code></td><td>Revit category name (for matching)</td></tr>
+                            <tr><td><code>Family Name</code></td><td><code>FAMILY NAME</code>, <code>FAMILY</code></td><td>Family name (for matching)</td></tr>
+                            <tr><td><code>District Code</code></td><td><code>DISTRICT_CODE</code></td><td>District/zone code</td></tr>
+                            <tr><td><code>Asset Group</code></td><td><code>ASSET_GROUP</code></td><td>Asset group identifier</td></tr>
+                            <tr><td><code>Asset Type</code></td><td><code>ASSET_TYPE</code></td><td>Asset type classification</td></tr>
+                            <tr><td><code>Location Code</code></td><td><code>LOCATION_CODE</code></td><td>Location reference</td></tr>
+                            <tr><td><code>Description</code></td><td><code>DESCRIPTION</code></td><td>Item description</td></tr>
+                            <tr><td><code>ABS L1</code></td><td><code>ABS_L1</code></td><td>Abstract level 1</td></tr>
+                            <tr><td><code>ABS L2</code></td><td><code>ABS_L2</code></td><td>Abstract level 2</td></tr>
+                            <tr><td><code>ABS L3</code></td><td><code>ABS_L3</code></td><td>Abstract level 3</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h2>Header Detection</h2>
+                <ul>
+                    <li>Headers are read from <strong>Row 1</strong> only</li>
+                    <li>Matching is <strong>case-insensitive</strong> (e.g. "package no" = "PACKAGE NO")</li>
+                    <li>The parser scans up to <strong>200 columns</strong></li>
+                    <li>Scanning stops after <strong>10 consecutive empty</strong> header cells</li>
+                </ul>
+
+                <h2>Data Rows</h2>
+                <ul>
+                    <li>Data starts from <strong>Row 2</strong></li>
+                    <li>Supports up to <strong>100,000 rows</strong></li>
+                    <li>Parsing stops after <strong>20 consecutive empty</strong> rows</li>
+                    <li>A row must have either <code>Type Name</code> or <code>Element ID</code> to be imported</li>
+                </ul>
+
+                <h2>Exported File Structure</h2>
+                <p>When you click <strong>Export Elements</strong>, the output Excel contains:</p>
+
+                <h3>Sheet 1: Revit Elements</h3>
+                <pre><code>Element ID | Unique ID | Category | Family Name | Type Name | Level | Workset | Mark | Package No | Bill No | System Code | Page No | Item No | QIC_5D_BOQ CODE</code></pre>
+
+                <h3>Sheet 2: BOQ Mapping (Empty Template)</h3>
+                <pre><code>Category | Family Name | Type Name | Package No | Bill No | System Code | Page No | Item No | District Code | Asset Group | Asset Type | Location Code | Description | ABS L1 | ABS L2 | ABS L3</code></pre>
+
+                <div class="docs-callout tip">
+                    <strong>💡 Workflow Tip</strong>
+                    <p>Export first, then copy unique Category/Family/Type combinations to the BOQ Mapping sheet and fill in your codes there.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand"><div class="logo-icon">R</div><span>RUKN BIM API</span></div>
+            </div>
+            <div class="footer-copy">&copy; 2025 RUKN BIM API. All rights reserved.</div>
+        </div>
+    </footer>
+
+    <script src="../script.js"></script>
+</body>
+</html>

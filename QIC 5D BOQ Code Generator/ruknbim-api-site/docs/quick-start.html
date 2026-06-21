@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Quick start guide for the QIC 5D BOQ Code Generator Revit add-in.">
+    <title>Quick Start — RUKN BIM API</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏗️</text></svg>">
+</head>
+<body>
+    <div class="bg-blobs">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+    </div>
+
+    <nav class="navbar scrolled">
+        <div class="container">
+            <a href="../index.html" class="nav-logo">
+                <div class="logo-icon">R</div>
+                RUKN BIM
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="../index.html#products">Products</a></li>
+                <li><a href="../index.html#features">Features</a></li>
+                <li><a href="../index.html#docs">Docs</a></li>
+                <li><a href="../index.html#contact" class="nav-cta">Get Started</a></li>
+            </ul>
+            <button class="nav-hamburger" id="navToggle" aria-label="Toggle menu">☰</button>
+        </div>
+    </nav>
+
+    <main class="docs-page section">
+        <div class="container">
+            <a href="../index.html#docs" class="docs-back">← Back to Documentation</a>
+
+            <div class="docs-header">
+                <h1>🚀 Quick Start Guide</h1>
+                <p>Get up and running with 5D BOQ code generation in 5 minutes</p>
+            </div>
+
+            <div class="docs-content">
+                <h2>Step 1: Activate Your License</h2>
+                <ol>
+                    <li>Open Revit and navigate to the <strong>QIC Tools</strong> ribbon tab</li>
+                    <li>Click <strong>QIC 5D BOQ Manager</strong> — a license prompt will appear</li>
+                    <li>Enter your <strong>email</strong> and <strong>activation code</strong></li>
+                    <li>Click <strong>Activate</strong> — the system validates against the server</li>
+                </ol>
+
+                <div class="docs-callout tip">
+                    <strong>💡 Tip</strong>
+                    <p>Your license is cached locally. You won't need to re-activate unless it expires or you switch machines.</p>
+                </div>
+
+                <h2>Step 2: Export Your Model Elements</h2>
+                <ol>
+                    <li>Open a Revit project with model elements</li>
+                    <li>In the <strong>QIC 5D BOQ Manager</strong> window, select your scope:
+                        <ul>
+                            <li><strong>Current Selection</strong> — only pre-selected elements</li>
+                            <li><strong>Active View</strong> — elements visible in the current view</li>
+                            <li><strong>Full Model</strong> — all model elements</li>
+                        </ul>
+                    </li>
+                    <li>Optionally filter by <strong>Category</strong>, <strong>Family</strong>, or <strong>Type</strong></li>
+                    <li>Click <strong>Export Elements</strong> and save the Excel file</li>
+                </ol>
+
+                <p>The exported workbook contains two sheets:</p>
+                <ul>
+                    <li><strong>Revit Elements</strong> — all element data (ID, Category, Family, Type, Level, etc.)</li>
+                    <li><strong>BOQ Mapping</strong> — an empty template for your BOQ codes</li>
+                </ul>
+
+                <h2>Step 3: Fill in BOQ Codes</h2>
+                <p>Open the Excel file and fill in the <strong>BOQ Mapping</strong> sheet (or add columns to the Revit Elements sheet):</p>
+
+                <pre><code>| Category | Family Name | Type Name   | Package No | Bill No | System Code | Page No | Item No |
+|----------|------------|-------------|------------|---------|-------------|---------|---------|
+| Walls    | Basic Wall | Generic 200 | PKG01      | B02     | ARC         | P05     | I001    |
+| Doors    | Single     | 0900x2100   | PKG01      | B02     | ARC         | P07     | I015    |</code></pre>
+
+                <div class="docs-callout info">
+                    <strong>ℹ️ Matching</strong>
+                    <p>Elements are matched by <strong>Element ID</strong> first (if column exists), then by <strong>Category + Family + Type</strong> combination.</p>
+                </div>
+
+                <h2>Step 4: Import & Validate</h2>
+                <ol>
+                    <li>Click <strong>Import Excel</strong> in the Manager window</li>
+                    <li>Select your filled-in Excel file</li>
+                    <li>The status bar shows how many records were loaded</li>
+                    <li>Click <strong>Validate Mapping</strong> to preview results without writing data</li>
+                </ol>
+
+                <p>Validation shows:</p>
+                <ul>
+                    <li><strong>Matched</strong> — elements successfully linked to BOQ records</li>
+                    <li><strong>Warnings</strong> — matched but with missing field values</li>
+                    <li><strong>Errors</strong> — no mapping found for these element types</li>
+                </ul>
+
+                <h2>Step 5: Generate Codes</h2>
+                <ol>
+                    <li>Review the validation results</li>
+                    <li>Click <strong>Generate 5D BOQ Codes</strong></li>
+                    <li>The add-in will:
+                        <ul>
+                            <li>Create all 14 shared parameters (if not existing)</li>
+                            <li>Match each element to its BOQ record</li>
+                            <li>Write parameter values to every matched element</li>
+                            <li>Generate the composite <code>QIC_5D_BOQ CODE</code></li>
+                        </ul>
+                    </li>
+                    <li>A summary dialog shows the results</li>
+                </ol>
+
+                <div class="docs-callout tip">
+                    <strong>💡 Example Output</strong>
+                    <p>With separator set to Dash: <code>PKG01-B02-ARC-P05-I001</code></p>
+                </div>
+
+                <h2>Step 6: Export Audit Report</h2>
+                <p>After generating codes, click <strong>Audit Report</strong> to export a full trail of every element processed. Available formats:</p>
+                <ul>
+                    <li><strong>Excel (.xlsx)</strong> — full formatted report</li>
+                    <li><strong>CSV (.csv)</strong> — UTF-8 plain text</li>
+                    <li><strong>JSON (.json)</strong> — machine-readable format</li>
+                </ul>
+
+                <h2>What's Next?</h2>
+                <ul>
+                    <li><a href="excel-format.html">Excel Format Reference</a> — detailed column specs</li>
+                    <li><a href="api-reference.html">API Reference</a> — class & method docs</li>
+                    <li><a href="licensing.html">Licensing</a> — activation & renewal</li>
+                </ul>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="logo-icon">R</div>
+                    <span>RUKN BIM API</span>
+                </div>
+            </div>
+            <div class="footer-copy">
+                &copy; 2025 RUKN BIM API. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script src="../script.js"></script>
+</body>
+</html>

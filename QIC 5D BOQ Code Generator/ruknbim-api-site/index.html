@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="RUKN BIM API — Professional Revit & Navisworks Add-ins for BIM automation. Export, map, and manage your building models with precision.">
+    <title>RUKN BIM API — Revit & Navisworks Add-ins</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏗️</text></svg>">
+</head>
+<body>
+
+    <!-- Animated Background -->
+    <div class="bg-blobs">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <a href="#" class="nav-logo">
+                <div class="logo-icon">R</div>
+                RUKN BIM
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#products">Products</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#workflow">Workflow</a></li>
+                <li><a href="#docs">Documentation</a></li>
+                <li><a href="#contact" class="nav-cta">Get Started</a></li>
+            </ul>
+            <button class="nav-hamburger" id="navToggle" aria-label="Toggle menu">☰</button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <span class="pulse-dot"></span>
+                    Revit 2023+ &amp; Navisworks Compatible
+                </div>
+                <h1>
+                    Professional<br>
+                    <span class="gradient-text">BIM Automation</span><br>
+                    Add-ins
+                </h1>
+                <p>
+                    RUKN BIM API delivers enterprise-grade Revit &amp; Navisworks add-ins that automate 
+                    model exports, 5D BOQ mapping, and metadata management — saving hours on every project.
+                </p>
+                <div class="hero-actions">
+                    <a href="#products" class="btn btn-primary">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                        Download Add-ins
+                    </a>
+                    <a href="#docs" class="btn btn-secondary">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+                        View Docs
+                    </a>
+                </div>
+            </div>
+
+            <!-- Hero Mockup -->
+            <div class="hero-visual">
+                <div class="hero-mockup">
+                    <div class="mockup-titlebar">
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                        <span>QIC 5D BOQ Manager — Revit 2023</span>
+                    </div>
+                    <div class="mockup-body">
+                        <div class="mockup-row"><div class="mockup-block accent w-50" style="height:18px"></div></div>
+                        <div class="mockup-row"><div class="mockup-block w-30"></div><div class="mockup-block w-30"></div><div class="mockup-block w-30"></div></div>
+                        <div class="mockup-row"><div class="mockup-block w-40"></div><div class="mockup-block w-40"></div></div>
+                        <div class="mockup-row"><div class="mockup-block emerald w-60"></div><div class="mockup-block violet w-30"></div></div>
+                        <div class="mockup-btn-row">
+                            <div class="mockup-btn outline">Export Elements</div>
+                            <div class="mockup-btn outline">Import Excel</div>
+                        </div>
+                        <div class="mockup-btn-row">
+                            <div class="mockup-btn outline">Validate</div>
+                            <div class="mockup-btn outline">Audit Report</div>
+                        </div>
+                        <div class="mockup-btn-row">
+                            <div class="mockup-btn blue" style="flex:1; text-align:center">Generate 5D BOQ Codes</div>
+                        </div>
+                        <div class="mockup-progress">
+                            <div class="mockup-progress-label">Matched: 1,284 elements</div>
+                            <div class="mockup-progress-bar">
+                                <div class="mockup-progress-fill"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Banner -->
+    <section class="stats" id="stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item reveal">
+                    <div class="stat-number" data-target="2">2</div>
+                    <div class="stat-label">Production Add-ins</div>
+                </div>
+                <div class="stat-item reveal">
+                    <div class="stat-number" data-target="40">40+</div>
+                    <div class="stat-label">Revit Categories</div>
+                </div>
+                <div class="stat-item reveal">
+                    <div class="stat-number" data-target="14">14</div>
+                    <div class="stat-label">Shared Parameters</div>
+                </div>
+                <div class="stat-item reveal">
+                    <div class="stat-number" data-target="100000">100K+</div>
+                    <div class="stat-label">Elements Supported</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="section" id="products">
+        <div class="container">
+            <div class="text-center">
+                <span class="section-label reveal">Our Add-ins</span>
+                <h2 class="section-title mx-auto reveal" style="max-width:700px">
+                    Enterprise-Grade BIM Tools
+                </h2>
+                <p class="section-subtitle mx-auto reveal">
+                    Two powerful add-ins designed for real-world BIM workflows in architecture, structure, MEP, and infrastructure projects.
+                </p>
+            </div>
+
+            <div class="products-grid">
+                <!-- Product 1: QIC 5D BOQ -->
+                <div class="product-card reveal" id="qic-boq">
+                    <div class="product-header">
+                        <div class="product-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                        </div>
+                        <div class="product-badge">Revit 2023+</div>
+                    </div>
+                    <h3>QIC 5D BOQ Code Generator</h3>
+                    <p class="product-desc">
+                        Automate 5D Bill of Quantities code generation directly inside Autodesk Revit. 
+                        Import Excel mappings, match elements by Category/Family/Type or Element ID, 
+                        and write BOQ codes to 14 shared parameters in one click.
+                    </p>
+                    <ul class="product-features">
+                        <li>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--accent-emerald)" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                            Export &amp; Import Excel BOQ mappings
+                        </li>
+                        <li>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--accent-emerald)" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                            Smart matching: Element ID + Category/Family/Type
+                        </li>
+                        <li>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--accent-emerald)" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                            14 shared parameters auto-created
+                        </li>
+                        <li>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--accent-emerald)" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                            Validation &amp; Audit reporting (Excel/CSV/JSON)
+                        </li>
+                        <li>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--accent-emerald)" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                            40+ Revit categories (Arch/Struct/MEP/Site)
+                        </li>
+                        <li>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--accent-emerald)" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                            Scope filters: Selection, Active View, Full Model
+                        </li>
+                    </ul>
+                    <div class="product-actions">
+                        <a href="#docs" class="btn btn-primary btn-sm">Documentation</a>
+                        <a href="#contact" class="btn btn-secondary btn-sm">Get License</a>
+                    </div>
+                </div>
+
+                <!-- Product 2: WphExportAddin -->
+                <div class="product-card reveal" id="wph-export">
+                    <div class="product-header">
+                        <div class="product-icon violet-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+                        </div>
+                        <div class="product-badge violet-badge">Revit &amp; Navisworks</div>
+                    </div>
+                    <h3>WPH Export Add-in</h3>
+                    <p class="product-desc">
+                        High-performance model data export add-in for Autodesk Revit and Navisworks. 
+                        Extract element properties, geometry data, and project metadata into structured 
+                        formats for downstream analysis and reporting.
+                    </p>
+                    <ul class="product-features">
+                        <li>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--accent-emerald)" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                            Revit &amp; Navisworks support
+                        </li>
+                        <li>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--accent-emerald)" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                            Structured data export
+                        </li>
+                        <li>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--accent-emerald)" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                            Element property extraction
+                        </li>
+                        <li>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--accent-emerald)" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                            Batch processing support
+                        </li>
+                    </ul>
+                    <div class="product-actions">
+                        <a href="#contact" class="btn btn-primary btn-sm" style="background:var(--accent-violet)">Learn More</a>
+                        <a href="#contact" class="btn btn-secondary btn-sm">Get License</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="section" id="features" style="background: var(--bg-secondary)">
+        <div class="container">
+            <div class="text-center">
+                <span class="section-label reveal">Why RUKN BIM</span>
+                <h2 class="section-title mx-auto reveal">Built for BIM Professionals</h2>
+                <p class="section-subtitle mx-auto reveal">
+                    Every feature is engineered for real construction and infrastructure project requirements.
+                </p>
+            </div>
+
+            <div class="features-grid">
+                <div class="feature-card reveal">
+                    <div class="feature-icon blue">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><polyline points="13 2 13 9 20 9"/></svg>
+                    </div>
+                    <h3>Excel Integration</h3>
+                    <p>Import and export Excel workbooks with smart column detection. Supports flexible header naming and up to 100K rows.</p>
+                </div>
+
+                <div class="feature-card reveal">
+                    <div class="feature-icon violet">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                    </div>
+                    <h3>Smart Matching</h3>
+                    <p>Dual matching engine: match by Element ID (exact) or Category + Family + Type (pattern). Case-insensitive by default.</p>
+                </div>
+
+                <div class="feature-card reveal">
+                    <div class="feature-icon cyan">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                    </div>
+                    <h3>License Protection</h3>
+                    <p>Supabase-backed license validation with local registry caching, expiration tracking, and secure activation flow.</p>
+                </div>
+
+                <div class="feature-card reveal">
+                    <div class="feature-icon emerald">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                    </div>
+                    <h3>Validation Engine</h3>
+                    <p>Dry-run validation before committing changes. Identifies matched, unmatched, and partially-mapped elements with warnings.</p>
+                </div>
+
+                <div class="feature-card reveal">
+                    <div class="feature-icon amber">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+                    </div>
+                    <h3>Audit Reporting</h3>
+                    <p>Export detailed audit trails to Excel, CSV, or JSON. Every element is logged with status, remarks, and generated BOQ codes.</p>
+                </div>
+
+                <div class="feature-card reveal">
+                    <div class="feature-icon rose">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+                    </div>
+                    <h3>Auto-Deploy Build</h3>
+                    <p>MSBuild auto-deploy target copies DLLs, resources, and .addin manifest directly to Revit's Addins folder on every build.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Workflow Section -->
+    <section class="section" id="workflow">
+        <div class="container">
+            <span class="section-label reveal">How It Works</span>
+            <h2 class="section-title reveal">5D BOQ Workflow</h2>
+            <p class="section-subtitle reveal">
+                From model export to BOQ code generation in five simple steps.
+            </p>
+
+            <div class="workflow-steps">
+                <div class="workflow-step reveal">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Export Model Elements</h3>
+                        <p>Select your scope (Current Selection, Active View, or Full Model), apply optional category/family/type filters, 
+                        and export all elements to an Excel workbook with <code>Revit Elements</code> and <code>BOQ Mapping</code> sheets.</p>
+                    </div>
+                </div>
+
+                <div class="workflow-step reveal">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>Map BOQ Codes in Excel</h3>
+                        <p>Fill in the mapping columns: <code>PACKAGE_NO</code>, <code>BILL_NO</code>, <code>SYSTEM_CODE</code>, 
+                        <code>PAGE_NO</code>, <code>ITEM_NO</code>, plus optional fields like <code>DISTRICT_CODE</code>, <code>ASSET_GROUP</code>, and more.</p>
+                    </div>
+                </div>
+
+                <div class="workflow-step reveal">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>Import Mapped Excel</h3>
+                        <p>Load the completed Excel file back into the add-in. The smart parser auto-detects column headers with flexible naming support (e.g. "Package No" or "PACKAGE_NO").</p>
+                    </div>
+                </div>
+
+                <div class="workflow-step reveal">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h3>Validate Mapping</h3>
+                        <p>Run a dry validation to preview matched/unmatched elements before committing any changes. Review warnings for incomplete BOQ records.</p>
+                    </div>
+                </div>
+
+                <div class="workflow-step reveal">
+                    <div class="step-number">5</div>
+                    <div class="step-content">
+                        <h3>Generate 5D BOQ Codes</h3>
+                        <p>One click creates all 14 shared parameters, matches elements, and writes values including the composite <code>QIC_5D_BOQ CODE</code> 
+                        (e.g. <code>PKG01-B02-MEP-P05-I003</code>). Export an audit report for QA.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Parameters Section -->
+    <section class="section params-section" id="parameters">
+        <div class="container">
+            <div class="text-center">
+                <span class="section-label reveal">Technical Specs</span>
+                <h2 class="section-title mx-auto reveal">Shared Parameters</h2>
+                <p class="section-subtitle mx-auto reveal">
+                    14 instance parameters auto-created and bound to all selected categories.
+                </p>
+            </div>
+
+            <div class="params-table-wrapper reveal">
+                <table class="params-table">
+                    <thead>
+                        <tr>
+                            <th>Parameter</th>
+                            <th>Group</th>
+                            <th>Status</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><code>PACKAGE_NO</code></td><td>Text</td><td><span class="badge required">Required</span></td><td>Package number for BOQ classification</td></tr>
+                        <tr><td><code>BILL_NO</code></td><td>Text</td><td><span class="badge required">Required</span></td><td>Bill number reference</td></tr>
+                        <tr><td><code>SYSTEM_CODE</code></td><td>Text</td><td><span class="badge required">Required</span></td><td>System code (e.g. MEP, STR)</td></tr>
+                        <tr><td><code>PAGE_NO</code></td><td>Text</td><td><span class="badge required">Required</span></td><td>Page number in BOQ document</td></tr>
+                        <tr><td><code>ITEM_NO</code></td><td>Text</td><td><span class="badge required">Required</span></td><td>Item number within the page</td></tr>
+                        <tr><td><code>QIC_5D_BOQ CODE</code></td><td>Identity Data</td><td><span class="badge required">Auto</span></td><td>Composite code: PKG-BILL-SYS-PAGE-ITEM</td></tr>
+                        <tr><td><code>DISTRICT_CODE</code></td><td>Data</td><td><span class="badge optional">Optional</span></td><td>District/zone classification</td></tr>
+                        <tr><td><code>ASSET_GROUP</code></td><td>Data</td><td><span class="badge optional">Optional</span></td><td>Asset group identifier</td></tr>
+                        <tr><td><code>ASSET_TYPE</code></td><td>Data</td><td><span class="badge optional">Optional</span></td><td>Asset type classification</td></tr>
+                        <tr><td><code>LOCATION_CODE</code></td><td>Data</td><td><span class="badge optional">Optional</span></td><td>Location code reference</td></tr>
+                        <tr><td><code>DESCRIPTION</code></td><td>Data</td><td><span class="badge optional">Optional</span></td><td>Item description text</td></tr>
+                        <tr><td><code>ABS_L1</code></td><td>Data</td><td><span class="badge optional">Optional</span></td><td>Abstract level 1 category</td></tr>
+                        <tr><td><code>ABS_L2</code></td><td>Data</td><td><span class="badge optional">Optional</span></td><td>Abstract level 2 category</td></tr>
+                        <tr><td><code>ABS_L3</code></td><td>Data</td><td><span class="badge optional">Optional</span></td><td>Abstract level 3 category</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section class="section" id="categories">
+        <div class="container">
+            <div class="text-center">
+                <span class="section-label reveal">Coverage</span>
+                <h2 class="section-title mx-auto reveal">40+ Supported Categories</h2>
+                <p class="section-subtitle mx-auto reveal">
+                    Full coverage across all major BIM disciplines.
+                </p>
+            </div>
+
+            <div class="categories-grid">
+                <div class="category-group reveal">
+                    <h4><span>🏛️</span> Architecture</h4>
+                    <div class="category-tags">
+                        <span class="category-tag">Walls</span>
+                        <span class="category-tag">Floors</span>
+                        <span class="category-tag">Ceilings</span>
+                        <span class="category-tag">Roofs</span>
+                        <span class="category-tag">Doors</span>
+                        <span class="category-tag">Windows</span>
+                        <span class="category-tag">Rooms</span>
+                        <span class="category-tag">Areas</span>
+                        <span class="category-tag">Furniture</span>
+                        <span class="category-tag">Casework</span>
+                        <span class="category-tag">Generic Models</span>
+                        <span class="category-tag">Specialty Equipment</span>
+                    </div>
+                </div>
+
+                <div class="category-group reveal">
+                    <h4><span>🏗️</span> Structure</h4>
+                    <div class="category-tags">
+                        <span class="category-tag">Structural Columns</span>
+                        <span class="category-tag">Structural Framing</span>
+                        <span class="category-tag">Structural Foundations</span>
+                        <span class="category-tag">Structural Connections</span>
+                        <span class="category-tag">Rebar</span>
+                    </div>
+                </div>
+
+                <div class="category-group reveal">
+                    <h4><span>🔧</span> Mechanical</h4>
+                    <div class="category-tags">
+                        <span class="category-tag">Mechanical Equipment</span>
+                        <span class="category-tag">Ducts</span>
+                        <span class="category-tag">Flex Ducts</span>
+                        <span class="category-tag">Air Terminals</span>
+                        <span class="category-tag">Duct Fittings</span>
+                        <span class="category-tag">Duct Accessories</span>
+                    </div>
+                </div>
+
+                <div class="category-group reveal">
+                    <h4><span>🚰</span> Plumbing</h4>
+                    <div class="category-tags">
+                        <span class="category-tag">Pipes</span>
+                        <span class="category-tag">Flex Pipes</span>
+                        <span class="category-tag">Pipe Fittings</span>
+                        <span class="category-tag">Pipe Accessories</span>
+                        <span class="category-tag">Plumbing Fixtures</span>
+                        <span class="category-tag">Sprinklers</span>
+                    </div>
+                </div>
+
+                <div class="category-group reveal">
+                    <h4><span>⚡</span> Electrical</h4>
+                    <div class="category-tags">
+                        <span class="category-tag">Electrical Equipment</span>
+                        <span class="category-tag">Electrical Fixtures</span>
+                        <span class="category-tag">Lighting Fixtures</span>
+                        <span class="category-tag">Lighting Devices</span>
+                        <span class="category-tag">Data Devices</span>
+                        <span class="category-tag">Communication Devices</span>
+                        <span class="category-tag">Fire Alarm Devices</span>
+                        <span class="category-tag">Security Devices</span>
+                        <span class="category-tag">Cable Trays</span>
+                        <span class="category-tag">Conduits</span>
+                    </div>
+                </div>
+
+                <div class="category-group reveal">
+                    <h4><span>🌿</span> Site</h4>
+                    <div class="category-tags">
+                        <span class="category-tag">Parking</span>
+                        <span class="category-tag">Planting</span>
+                        <span class="category-tag">Topography</span>
+                        <span class="category-tag">Site Components</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Documentation Section -->
+    <section class="section" id="docs" style="background: var(--bg-secondary)">
+        <div class="container">
+            <div class="text-center">
+                <span class="section-label reveal">Resources</span>
+                <h2 class="section-title mx-auto reveal">Documentation</h2>
+                <p class="section-subtitle mx-auto reveal">
+                    Everything you need to install, configure, and use RUKN BIM add-ins.
+                </p>
+            </div>
+
+            <div class="docs-grid">
+                <div class="doc-card reveal" onclick="window.location.href='docs/installation.html'">
+                    <div class="doc-icon">📦</div>
+                    <h3>Installation Guide</h3>
+                    <p>Step-by-step setup for Revit 2023+. Covers manual install and the Inno Setup installer.</p>
+                    <span class="doc-link">Read guide</span>
+                </div>
+
+                <div class="doc-card reveal" onclick="window.location.href='docs/quick-start.html'">
+                    <div class="doc-icon">🚀</div>
+                    <h3>Quick Start</h3>
+                    <p>Get up and running in 5 minutes. Export your first elements and generate BOQ codes.</p>
+                    <span class="doc-link">Get started</span>
+                </div>
+
+                <div class="doc-card reveal" onclick="window.location.href='docs/excel-format.html'">
+                    <div class="doc-icon">📊</div>
+                    <h3>Excel Format Reference</h3>
+                    <p>Detailed column specifications, supported headers, and mapping template structure.</p>
+                    <span class="doc-link">View reference</span>
+                </div>
+
+                <div class="doc-card reveal" onclick="window.location.href='docs/api-reference.html'">
+                    <div class="doc-icon">⚙️</div>
+                    <h3>API Reference</h3>
+                    <p>Complete class and method documentation for QicBoqManager, ExcelService, and more.</p>
+                    <span class="doc-link">Explore API</span>
+                </div>
+
+                <div class="doc-card reveal" onclick="window.location.href='docs/licensing.html'">
+                    <div class="doc-icon">🔑</div>
+                    <h3>Licensing</h3>
+                    <p>Activation, renewal, and Supabase backend setup for license management.</p>
+                    <span class="doc-link">Learn more</span>
+                </div>
+
+                <div class="doc-card reveal" onclick="window.location.href='docs/changelog.html'">
+                    <div class="doc-icon">📋</div>
+                    <h3>Changelog</h3>
+                    <p>Version history, release notes, and upcoming features on the roadmap.</p>
+                    <span class="doc-link">View changes</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta" id="contact">
+        <div class="container">
+            <div class="cta-box reveal">
+                <h2>Ready to Automate Your <span class="gradient-text">BIM Workflow</span>?</h2>
+                <p>Get started with RUKN BIM add-ins today. Contact us for licensing, support, or custom development.</p>
+                <div class="hero-actions">
+                    <a href="mailto:info@ruknbim.com" class="btn btn-primary">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                        Contact Us
+                    </a>
+                    <a href="#products" class="btn btn-secondary">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/></svg>
+                        Explore Products
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="logo-icon">R</div>
+                    <span>RUKN BIM API</span>
+                </div>
+                <ul class="footer-links">
+                    <li><a href="#products">Products</a></li>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#docs">Docs</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-copy">
+                &copy; 2025 RUKN BIM API. All rights reserved. Built for Autodesk Revit &amp; Navisworks.
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

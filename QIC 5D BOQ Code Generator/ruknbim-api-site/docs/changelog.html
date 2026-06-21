@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Changelog and release notes for RUKN BIM API add-ins.">
+    <title>Changelog — RUKN BIM API</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏗️</text></svg>">
+</head>
+<body>
+    <div class="bg-blobs"><div class="blob blob-1"></div><div class="blob blob-2"></div></div>
+
+    <nav class="navbar scrolled">
+        <div class="container">
+            <a href="../index.html" class="nav-logo"><div class="logo-icon">R</div> RUKN BIM</a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="../index.html#products">Products</a></li>
+                <li><a href="../index.html#docs">Docs</a></li>
+                <li><a href="../index.html#contact" class="nav-cta">Get Started</a></li>
+            </ul>
+            <button class="nav-hamburger" id="navToggle" aria-label="Toggle menu">☰</button>
+        </div>
+    </nav>
+
+    <main class="docs-page section">
+        <div class="container">
+            <a href="../index.html#docs" class="docs-back">← Back to Documentation</a>
+
+            <div class="docs-header">
+                <h1>📋 Changelog</h1>
+                <p>Version history and release notes</p>
+            </div>
+
+            <div class="docs-content">
+                <h2>v1.0.0 — Initial Release</h2>
+                <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 16px;">June 2025</p>
+
+                <h3>🎉 Features</h3>
+                <ul>
+                    <li>QIC 5D BOQ Manager window with dark theme UI</li>
+                    <li>Export Revit elements to Excel (Revit Elements + BOQ Mapping sheets)</li>
+                    <li>Import Excel BOQ mapping files with auto-detected headers</li>
+                    <li>Dual matching engine: Element ID + Category/Family/Type</li>
+                    <li>Validation mode (dry-run without writing data)</li>
+                    <li>Generate 5D BOQ codes — creates 14 shared parameters</li>
+                    <li>Audit report export (Excel, CSV, JSON)</li>
+                    <li>40+ Revit category support (Architecture, Structure, MEP, Site)</li>
+                    <li>Scope selection: Current Selection, Active View, Full Model</li>
+                    <li>Category/Family/Type text filters</li>
+                    <li>Configurable separator styles (Dash, Dot, Underscore, Comma)</li>
+                    <li>Supabase-backed license activation system</li>
+                    <li>Auto-deploy MSBuild target</li>
+                    <li>Inno Setup installer script</li>
+                </ul>
+
+                <h3>🔧 Technical</h3>
+                <ul>
+                    <li>.NET Framework 4.8 targeting Revit 2023</li>
+                    <li>WPF with MVVM pattern</li>
+                    <li>EPPlus 5.8.14 for Excel operations</li>
+                    <li>ExternalEvent pattern for Revit API thread safety</li>
+                    <li>AssemblyResolve handler for dependency loading</li>
+                </ul>
+
+                <hr style="border-color: var(--border-subtle); margin: 48px 0;">
+
+                <h2>Roadmap</h2>
+                <ul>
+                    <li>🔲 Multi-Revit version support (2024, 2025)</li>
+                    <li>🔲 Navisworks integration for WPH Export</li>
+                    <li>🔲 Batch processing across multiple models</li>
+                    <li>🔲 Cloud sync for BOQ mappings</li>
+                    <li>🔲 Visual mapping preview with element highlighting</li>
+                    <li>🔲 Undo/rollback for generated codes</li>
+                </ul>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content"><div class="footer-brand"><div class="logo-icon">R</div><span>RUKN BIM API</span></div></div>
+            <div class="footer-copy">&copy; 2025 RUKN BIM API. All rights reserved.</div>
+        </div>
+    </footer>
+
+    <script src="../script.js"></script>
+</body>
+</html>

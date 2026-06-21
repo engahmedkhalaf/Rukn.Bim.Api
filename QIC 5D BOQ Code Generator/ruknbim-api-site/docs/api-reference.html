@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="API reference for the QIC 5D BOQ Code Generator classes and methods.">
+    <title>API Reference — RUKN BIM API</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏗️</text></svg>">
+</head>
+<body>
+    <div class="bg-blobs"><div class="blob blob-1"></div><div class="blob blob-2"></div></div>
+
+    <nav class="navbar scrolled">
+        <div class="container">
+            <a href="../index.html" class="nav-logo"><div class="logo-icon">R</div> RUKN BIM</a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="../index.html#products">Products</a></li>
+                <li><a href="../index.html#docs">Docs</a></li>
+                <li><a href="../index.html#contact" class="nav-cta">Get Started</a></li>
+            </ul>
+            <button class="nav-hamburger" id="navToggle" aria-label="Toggle menu">☰</button>
+        </div>
+    </nav>
+
+    <main class="docs-page section">
+        <div class="container">
+            <a href="../index.html#docs" class="docs-back">← Back to Documentation</a>
+
+            <div class="docs-header">
+                <h1>⚙️ API Reference</h1>
+                <p>Complete class and method documentation for the QicBoqMapper namespace</p>
+            </div>
+
+            <div class="docs-content">
+                <h2>QicBoqManager</h2>
+                <p>Static class containing the core business logic.</p>
+
+                <h3>GetElements</h3>
+                <pre><code>public static List&lt;Element&gt; GetElements(
+    Document doc,
+    UIDocument uiDoc,
+    string selectionMode,
+    List&lt;string&gt; selectedCategoryNames,
+    string categoryFilterText = "",
+    string familyFilterText = "",
+    string typeFilterText = ""
+)</code></pre>
+                <p>Collects Revit elements based on scope (Current Selection / Active View / Entire Model) and applies category, family, and type text filters.</p>
+
+                <h3>CreateSharedParameters</h3>
+                <pre><code>public static void CreateSharedParameters(
+    Document doc,
+    List&lt;string&gt; categoryNames
+)</code></pre>
+                <p>Creates 14 shared instance parameters and binds them to all specified categories using a temporary shared parameter file.</p>
+
+                <h3>PerformMapping</h3>
+                <pre><code>public static List&lt;AuditRecord&gt; PerformMapping(
+    Document doc,
+    List&lt;Element&gt; elements,
+    List&lt;BoqRecord&gt; excelRecords,
+    string separator,
+    string matchingMethod,
+    bool caseInsensitive,
+    out int matchedCount,
+    out int unmatchedCount
+)</code></pre>
+                <p>Matches elements to BOQ records using dual strategy (Element ID first, then Category+Family+Type). Returns audit records with status for each element.</p>
+
+                <h3>UpdateParameters</h3>
+                <pre><code>public static void UpdateParameters(
+    Document doc,
+    List&lt;Element&gt; elements,
+    List&lt;AuditRecord&gt; auditRecords,
+    List&lt;BoqRecord&gt; excelRecords,
+    string matchingMethod,
+    bool caseInsensitive
+)</code></pre>
+                <p>Writes all mapped values (required + optional) to element parameters inside a Revit transaction. Supports flexible parameter name lookup with variants (underscore, space, title case).</p>
+
+                <hr style="border-color: var(--border-subtle); margin: 48px 0;">
+
+                <h2>QicBoqExcelService</h2>
+                <p>Static class for reading Excel BOQ mapping files.</p>
+
+                <h3>LoadBoqRecords</h3>
+                <pre><code>public static List&lt;BoqRecord&gt; LoadBoqRecords(string filePath)</code></pre>
+                <p>Reads an Excel file and returns a list of <code>BoqRecord</code> objects. Auto-detects column headers and supports flexible naming.</p>
+
+                <hr style="border-color: var(--border-subtle); margin: 48px 0;">
+
+                <h2>QicBoqExportService</h2>
+                <p>Static class for exporting Revit elements to Excel.</p>
+
+                <h3>ExportElements</h3>
+                <pre><code>public static void ExportElements(
+    string filePath,
+    Document doc,
+    List&lt;Element&gt; elements
+)</code></pre>
+                <p>Creates an Excel workbook with "Revit Elements" data sheet and empty "BOQ Mapping" template sheet.</p>
+
+                <hr style="border-color: var(--border-subtle); margin: 48px 0;">
+
+                <h2>Data Models</h2>
+
+                <h3>BoqRecord</h3>
+                <p>Represents a row from the Excel BOQ mapping file.</p>
+                <pre><code>public class BoqRecord
+{
+    // Matching fields
+    string Category, FamilyName, TypeName, ElementId
+
+    // Required BOQ fields
+    string PackageNo, BillNo, SystemCode, PageNo, ItemNo
+
+    // Optional fields
+    string DistrictCode, AssetGroup, AssetType,
+           LocationCode, Description,
+           AbsL1, AbsL2, AbsL3
+}</code></pre>
+
+                <h3>AuditRecord</h3>
+                <p>Represents the mapping result for a single Revit element.</p>
+                <pre><code>public class AuditRecord
+{
+    // Element identity
+    string ElementId, UniqueId, Category,
+           FamilyName, TypeName, Level,
+           Workset, Mark
+
+    // Mapped values
+    string PackageNo, BillNo, SystemCode,
+           PageNo, ItemNo, GeneratedBoqCode
+
+    // Audit
+    string Status    // "Success", "Warning", "Error"
+    string Remarks   // Human-readable description
+}</code></pre>
+
+                <hr style="border-color: var(--border-subtle); margin: 48px 0;">
+
+                <h2>CategoryMappingService</h2>
+                <p>Maps friendly category names to Revit <code>BuiltInCategory</code> enum values.</p>
+
+                <h3>GetCategoryNames</h3>
+                <pre><code>public static IEnumerable&lt;string&gt; GetCategoryNames()</code></pre>
+                <p>Returns all 40+ supported category display names.</p>
+
+                <h3>GetBuiltInCategory</h3>
+                <pre><code>public static BuiltInCategory GetBuiltInCategory(string name)</code></pre>
+                <p>Converts a display name to the corresponding <code>BuiltInCategory</code> enum value. Throws <code>ArgumentException</code> if not found.</p>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content"><div class="footer-brand"><div class="logo-icon">R</div><span>RUKN BIM API</span></div></div>
+            <div class="footer-copy">&copy; 2025 RUKN BIM API. All rights reserved.</div>
+        </div>
+    </footer>
+
+    <script src="../script.js"></script>
+</body>
+</html>

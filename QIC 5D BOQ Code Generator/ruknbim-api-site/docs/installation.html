@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Installation guide for RUKN BIM API Revit add-ins.">
+    <title>Installation Guide — RUKN BIM API</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏗️</text></svg>">
+</head>
+<body>
+    <div class="bg-blobs">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+    </div>
+
+    <nav class="navbar scrolled">
+        <div class="container">
+            <a href="../index.html" class="nav-logo">
+                <div class="logo-icon">R</div>
+                RUKN BIM
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="../index.html#products">Products</a></li>
+                <li><a href="../index.html#features">Features</a></li>
+                <li><a href="../index.html#docs">Docs</a></li>
+                <li><a href="../index.html#contact" class="nav-cta">Get Started</a></li>
+            </ul>
+            <button class="nav-hamburger" id="navToggle" aria-label="Toggle menu">☰</button>
+        </div>
+    </nav>
+
+    <main class="docs-page section">
+        <div class="container">
+            <a href="../index.html#docs" class="docs-back">← Back to Documentation</a>
+
+            <div class="docs-header">
+                <h1>📦 Installation Guide</h1>
+                <p>Step-by-step setup for QIC 5D BOQ Code Generator on Revit 2023+</p>
+            </div>
+
+            <div class="docs-content">
+                <h2>Prerequisites</h2>
+                <ul>
+                    <li>Autodesk Revit 2023 or later installed</li>
+                    <li>Windows 10/11 (64-bit)</li>
+                    <li>.NET Framework 4.8 (included with Windows 10 1903+)</li>
+                    <li>Administrator access for initial setup</li>
+                </ul>
+
+                <h2>Option 1: Installer (Recommended)</h2>
+                <ol>
+                    <li>Download the latest <code>QicBoqMapperSetup.exe</code> from the releases page</li>
+                    <li>Run the installer — it will auto-detect your Revit installation</li>
+                    <li>Follow the wizard to completion</li>
+                    <li>Launch Revit — the <strong>"QIC Tools"</strong> tab will appear in the ribbon</li>
+                </ol>
+
+                <div class="docs-callout tip">
+                    <strong>💡 Tip</strong>
+                    <p>The installer copies files to <code>C:\ProgramData\Autodesk\Revit\Addins\2023\</code> automatically.</p>
+                </div>
+
+                <h2>Option 2: Manual Installation</h2>
+                <ol>
+                    <li>Build the solution or download the compiled DLLs</li>
+                    <li>Copy <code>QicBoqMapper.addin</code> to:
+                        <pre><code>C:\ProgramData\Autodesk\Revit\Addins\2023\</code></pre>
+                    </li>
+                    <li>Copy all DLLs to:
+                        <pre><code>C:\ProgramData\Autodesk\Revit\Addins\2023\QicBoqMapper\</code></pre>
+                    </li>
+                    <li>Copy the <code>Resources</code> folder to:
+                        <pre><code>C:\ProgramData\Autodesk\Revit\Addins\2023\QicBoqMapper\Resources\</code></pre>
+                    </li>
+                </ol>
+
+                <h3>Required Files</h3>
+                <pre><code>Addins\2023\
+├── QicBoqMapper.addin
+└── QicBoqMapper\
+    ├── QicBoqMapper.dll
+    ├── EPPlus.dll
+    ├── Microsoft.IO.RecyclableMemoryStream.dll
+    └── Resources\
+        ├── QicBoqManager_16.png
+        ├── QicBoqManager_32.png
+        ├── License_16.png
+        ├── License_32.png
+        ├── About_16.png
+        └── About_32.png</code></pre>
+
+                <h2>Option 3: Developer Build</h2>
+                <p>If you're building from source:</p>
+                <pre><code>dotnet build QicBoqMapper.csproj -c Release</code></pre>
+
+                <div class="docs-callout info">
+                    <strong>ℹ️ Note</strong>
+                    <p>The <code>.csproj</code> includes an <code>AutoDeployToRevit</code> MSBuild target that copies everything to the Revit Addins folder automatically after each build.</p>
+                </div>
+
+                <h2>Verify Installation</h2>
+                <ol>
+                    <li>Launch Autodesk Revit 2023</li>
+                    <li>Look for the <strong>"QIC Tools"</strong> tab in the ribbon</li>
+                    <li>You should see 3 buttons: <strong>Manager</strong>, <strong>License</strong>, <strong>About</strong></li>
+                    <li>Click <strong>About</strong> to verify version information</li>
+                </ol>
+
+                <h2>Troubleshooting</h2>
+                <h3>Add-in doesn't appear in ribbon</h3>
+                <ul>
+                    <li>Verify the <code>.addin</code> file is in the correct folder</li>
+                    <li>Check that the <code>Assembly</code> path in the <code>.addin</code> file points to the correct DLL location</li>
+                    <li>Look in Revit's journal file for error messages</li>
+                </ul>
+
+                <h3>DLL loading errors</h3>
+                <ul>
+                    <li>Ensure <code>EPPlus.dll</code> is in the same folder as <code>QicBoqMapper.dll</code></li>
+                    <li>The add-in includes an <code>AssemblyResolve</code> handler to load dependencies from its own folder</li>
+                </ul>
+
+                <div class="docs-callout warning">
+                    <strong>⚠️ Important</strong>
+                    <p>Close Revit completely before installing or updating add-in files. Revit locks DLLs while running.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="logo-icon">R</div>
+                    <span>RUKN BIM API</span>
+                </div>
+            </div>
+            <div class="footer-copy">
+                &copy; 2025 RUKN BIM API. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script src="../script.js"></script>
+</body>
+</html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Licensing guide for RUKN BIM API add-ins.">
+    <title>Licensing — RUKN BIM API</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏗️</text></svg>">
+</head>
+<body>
+    <div class="bg-blobs"><div class="blob blob-1"></div><div class="blob blob-2"></div></div>
+
+    <nav class="navbar scrolled">
+        <div class="container">
+            <a href="../index.html" class="nav-logo"><div class="logo-icon">R</div> RUKN BIM</a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="../index.html#products">Products</a></li>
+                <li><a href="../index.html#docs">Docs</a></li>
+                <li><a href="../index.html#contact" class="nav-cta">Get Started</a></li>
+            </ul>
+            <button class="nav-hamburger" id="navToggle" aria-label="Toggle menu">☰</button>
+        </div>
+    </nav>
+
+    <main class="docs-page section">
+        <div class="container">
+            <a href="../index.html#docs" class="docs-back">← Back to Documentation</a>
+
+            <div class="docs-header">
+                <h1>🔑 Licensing</h1>
+                <p>Activation, renewal, and license management</p>
+            </div>
+
+            <div class="docs-content">
+                <h2>How Licensing Works</h2>
+                <p>RUKN BIM add-ins use a cloud-validated license system:</p>
+                <ol>
+                    <li>User receives an <strong>email</strong> and <strong>activation code</strong> upon purchase</li>
+                    <li>The add-in validates credentials against the <strong>Supabase</strong> backend</li>
+                    <li>On success, the license is <strong>cached locally</strong> in the Windows Registry</li>
+                    <li>Subsequent launches check the local cache — no internet required unless expired</li>
+                </ol>
+
+                <h2>Activation Flow</h2>
+                <ol>
+                    <li>Click any tool button in the <strong>QIC Tools</strong> ribbon tab</li>
+                    <li>If no valid license is found, the <strong>License Window</strong> appears</li>
+                    <li>Enter your registered <strong>email</strong> and <strong>activation code</strong></li>
+                    <li>Click <strong>Activate</strong></li>
+                    <li>The system validates with the server and stores the result</li>
+                </ol>
+
+                <div class="docs-callout info">
+                    <strong>ℹ️ Offline Support</strong>
+                    <p>After initial activation, the add-in works offline until the license expiration date. No internet connection is needed for day-to-day use.</p>
+                </div>
+
+                <h2>License Storage</h2>
+                <p>License data is stored in the Windows Registry:</p>
+                <pre><code>HKEY_CURRENT_USER\Software\QicTools\QicBoqMapper\
+├── Email           (string)
+├── ActivationCode  (string)
+├── LastVerified    (ISO 8601 datetime)
+└── ExpiresAt       (ISO 8601 datetime)</code></pre>
+
+                <h2>Expiration & Renewal</h2>
+                <ul>
+                    <li>The <code>ExpiresAt</code> timestamp is returned by the server during activation</li>
+                    <li>When expired, the add-in prompts re-activation</li>
+                    <li>If the server returns an active license with a new expiry, it updates locally</li>
+                    <li>Contact your administrator to renew a subscription before expiry</li>
+                </ul>
+
+                <div class="docs-callout warning">
+                    <strong>⚠️ Expired License</strong>
+                    <p>An expired license blocks all commands except the <strong>License</strong> and <strong>About</strong> buttons. A dialog will inform you that renewal is needed.</p>
+                </div>
+
+                <h2>Validation Rules</h2>
+                <ul>
+                    <li>Email must be a valid email format</li>
+                    <li>Activation code must be at least 4 characters</li>
+                    <li>Server checks: email + code match in <code>licenses</code> table, <code>status = "active"</code></li>
+                    <li>If <code>expires_at</code> is past, activation is denied</li>
+                </ul>
+
+                <h2>Troubleshooting</h2>
+
+                <h3>"Supabase connection failed"</h3>
+                <ul>
+                    <li>Check your internet connection</li>
+                    <li>Verify firewall isn't blocking HTTPS requests</li>
+                    <li>Contact support if the issue persists</li>
+                </ul>
+
+                <h3>"License Expired" dialog on startup</h3>
+                <ul>
+                    <li>Your subscription has ended</li>
+                    <li>Contact the administrator for a renewal code</li>
+                    <li>Click <strong>License</strong> in the ribbon to re-activate with new credentials</li>
+                </ul>
+
+                <h3>Moving to a new machine</h3>
+                <ul>
+                    <li>Simply re-activate with the same email and code on the new machine</li>
+                    <li>The license is tied to the email/code pair, not the machine</li>
+                </ul>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content"><div class="footer-brand"><div class="logo-icon">R</div><span>RUKN BIM API</span></div></div>
+            <div class="footer-copy">&copy; 2025 RUKN BIM API. All rights reserved.</div>
+        </div>
+    </footer>
+
+    <script src="../script.js"></script>
+</body>
+</html>
